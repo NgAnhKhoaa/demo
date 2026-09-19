@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Quản Lý Sinh Viên</h1>
+
+        <!-- Thanh công cụ -->
+        <div class="toolbar">
+            <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm theo mã, tên, email, SĐT...">
+            <button class="btn btn-primary" onclick="searchStudents()">Tìm</button>
+            <button class="btn btn-success" onclick="openAddModal()">+ Thêm sinh viên</button>
+        </div>
+
+        <!-- Bảng sinh viên -->
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã SV</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Lớp</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="studentTable">
+                <!-- Dữ liệu sẽ được JavaScript điền vào -->
+            </tbody>
+        </table>
+        <div id="emptyMsg" class="empty" style="display: none;">
+            Không có sinh viên nào.
+        </div>
+    </div>
+
+    <!-- Modal thêm/sửa -->
+    <div class="modal" id="studentModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Thêm sinh viên</h2>
+            <input type="hidden" id="studentId">
+
+            <div class="form-group">
+                <label>Mã sinh viên *</label>
+                <input type="text" id="studentCode" placeholder="VD: SV011" required>
+            </div>
+            <div class="form-group">
+                <label>Họ tên *</label>
+                <input type="text" id="fullName" placeholder="VD: Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" id="email" placeholder="VD: a@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Số điện thoại</label>
+                <input type="text" id="phone" placeholder="VD: 0901234567">
+            </div>
+            <div class="form-group">
+                <label>Lớp</label>
+                <input type="text" id="className" placeholder="VD: C2024A">
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Hủy</button>
+                <button class="btn btn-success" onclick="saveStudent()">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
